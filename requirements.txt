@@ -1,0 +1,11 @@
+google-genai
+python-dotenv
+crewai-tools
+fastapi
+gradio
+openai
+google-adk
+geocoder
+ipinfo
+markitdown[all]
+yfinance

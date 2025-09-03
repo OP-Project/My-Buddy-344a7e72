@@ -1,0 +1,22 @@
+{
+    "mcpServers": {
+        "reddit_server": {
+            "server_type": "stdio",
+            "server_params": {
+                "command": "uvx",
+                "args": [
+                    "--from",
+                    "git+https://github.com/adhikasp/mcp-reddit.git",
+                    "mcp-reddit"
+                ]
+            }
+        },
+        "weather": {
+            "command": "npx",
+            "args": [
+                "-y",
+                "@h1deya/mcp-server-weather"
+            ]
+        }
+    }
+}
