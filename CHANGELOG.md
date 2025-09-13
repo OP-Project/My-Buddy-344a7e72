@@ -19,6 +19,7 @@ All notable changes to this project are documented below.
 ## [chore/prompt-logger] — 2025-09-13
 - change position of gitignore and changelog files.
 - Add local logger.
+- Added frontend.
 
 ---
 

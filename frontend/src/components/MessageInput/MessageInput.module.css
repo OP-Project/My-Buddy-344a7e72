@@ -1,0 +1,92 @@
+.inputContainer {
+  padding: 15px;
+  background-color: white;
+  border-top: 1px solid #e5e7eb;
+}
+
+.inputForm {
+  display: flex;
+  gap: 10px;
+}
+
+.messageInput {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.messageInput:focus {
+  border-color: #3b82f6;
+}
+
+.sendButton {
+  padding: 0 15px;
+  border-radius: 8px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.sendButton:hover {
+  background-color: #2563eb;
+}
+
+.documentSelector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}
+
+.addDocumentButton {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+}
+
+.addDocumentButton:hover {
+  background-color: #e5e7eb;
+}
+
+.selectedDocument {
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+.messageInput:disabled {
+  background-color: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.sendButton:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .inputContainer {
+    padding: 10px;
+  }
+  
+  .messageInput {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+}
