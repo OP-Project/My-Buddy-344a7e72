@@ -20,6 +20,8 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from dotenv import load_dotenv
 load_dotenv()
 
+from src.config.logging import logger
+
 class BuddyOrchestrator:
     """
     The BuddyOrchestrator class is responsible for managing the orchestration of tasks.
@@ -67,7 +69,7 @@ class BuddyOrchestrator:
         md = MarkItDown()
         result = md.convert(BytesIO(content))
 
-        print("Markitdown conversion Done")
+        logger.info("Markitdown conversion Done")
         text = ""
         if result.title:
             text += f"# {result.title}\n\n"
@@ -88,13 +90,13 @@ class BuddyOrchestrator:
         )
         text_chunks = text_splitter.split_text(text)
 
-        print("Document split into chunks")
+        logger.info("Document split into chunks")
 
         # Generate embeddings in one batch
         result = self.client["gemini-embedding-001"].embed_content(text_chunks)
         embeddings = result["embedding"]
 
-        print("Embeddings generated")
+        logger.info("Embeddings generated")
 
         # Unique IDs for chunks
         chunk_ids = [f"{document_id}_{i}" for i in range(len(text_chunks))]
@@ -107,7 +109,7 @@ class BuddyOrchestrator:
             ids=chunk_ids
         )
 
-        print("Chunks stored in ChromaDB")
+        logger.info("Chunks stored in ChromaDB")
 
         return {"document_id": document_id}
     
@@ -199,8 +201,8 @@ class BuddyOrchestrator:
         SESSION_ID="1234"
 
         content = Content(role="user", parts=[Part(text=query_data.query)])
-        print(f"History: {query_data.chat_history}")
-        print(f"Running agent interaction with content: {content}")
+        logger.info(f"History: {query_data.chat_history}")
+        logger.info(f"Running agent interaction with content: {content}")
 
         events = runner.run_async(
             user_id=USER_ID,
@@ -215,17 +217,17 @@ class BuddyOrchestrator:
 
         # Testing session events and state
         # Uncomment the following lines to explore session events
-        # print("========== Session Event Exploration ==========")
+        # logger.info("========== Session Event Exploration ==========")
         # session = await session_service.get_session(
         #     app_name=APP_NAME, user_id=USER_ID, session_id=SESSION_ID
         # )
-        # print(f"Type of session: {type(session)}")4
+        # logger.info(f"Type of session: {type(session)}")4
         # if session is not None:
-        #     print(f"Session State: {session.state}")
-        #     print(f"Session Events: {len(session.events)}")
+        #     logger.info(f"Session State: {session.state}")
+        #     logger.info(f"Session Events: {len(session.events)}")
         # else:
-        #     print("Session is None. Cannot display state or events.")
-        # print("===============================================")
+        #     logger.info("Session is None. Cannot display state or events.")
+        # logger.info("===============================================")
 
         return OutputQuery(query=query_data.query, answer=f"This is a response from the agent interaction.\n{response}")
     

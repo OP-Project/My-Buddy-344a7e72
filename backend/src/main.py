@@ -19,6 +19,7 @@ import gradio as gr
 from typing import List, Dict, Any
 from markitdown import MarkItDown
 from contextlib import asynccontextmanager
+from src.config.logging import logger
 
 buddy_orchestrator = BuddyOrchestrator()
 
@@ -52,7 +53,7 @@ async def lifespan(app: FastAPI):
         if not os.path.exists(chroma_db_path):
             os.makedirs(chroma_db_path)
         else:
-            print(f"ChromaDB directory '{chroma_db_path}' already exists.")
+            logger.info(f"ChromaDB directory '{chroma_db_path}' already exists.")
         
         yield
     finally:
