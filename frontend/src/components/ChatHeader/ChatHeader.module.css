@@ -1,0 +1,70 @@
+.header {
+  padding: 15px 20px;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.chatModeSelector {
+  display: flex;
+  gap: 10px;
+}
+
+.modeButton {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.modeButton:hover {
+  background-color: #f3f4f6;
+}
+
+.active {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.documentInfo {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.documentName {
+  font-weight: bold;
+  color: #3b82f6;
+}
+
+.statusIndicator {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 0.8rem;
+}
+
+.statusOnline {
+  color: #10b981;
+}
+
+.statusOffline {
+  color: #ef4444;
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding: 10px;
+  font-size: 0.9rem;
+  }
+  
+  .modeButton {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

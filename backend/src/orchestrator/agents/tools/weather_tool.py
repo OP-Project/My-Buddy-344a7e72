@@ -5,6 +5,8 @@ import geocoder
 from dotenv import load_dotenv
 load_dotenv()
 
+from src.config.logging import logger
+
 def get_weather_by_city(location: str) -> dict:
     """
     Get current weather information for a given city using the WeatherAPI.
@@ -27,7 +29,7 @@ def get_weather_by_city(location: str) -> dict:
     """
     api_key = os.getenv("WEATHER_API_KEY")
     base_url = "http://api.weatherapi.com/v1/current.json"
-    print("get_weather_by_city called with location:", location)
+    logger.info("get_weather_by_city called with location:", location)
     try:
         response = requests.get(f"{base_url}?key={api_key}&q={location}")
         response.raise_for_status()
@@ -45,14 +47,14 @@ def get_weather_by_city(location: str) -> dict:
             f"UV Index: {data['current']['uv']}\n"
             f"Last Updated: {data['current']['last_updated']}"
         )
-        print("weather temp:", data['current']['temp_c'])
+        logger.info("weather temp:", data['current']['temp_c'])
         return {
             "status": "success",
             "report": report
         }
 
     except Exception as e:
-        print("Error fetching weather data:", str(e))
+        logger.info("Error fetching weather data:", str(e))
         return {
             "status": "error",
             "error_message": f"Failed to fetch weather data: {str(e)}"
@@ -82,7 +84,7 @@ def get_weather_by_city(location: str) -> dict:
 #             Coordinates: {details.loc}
 #             IP Address: {ip_address}
 #             """
-#             print("Hello",location_info)
+#             logger.info("Hello",location_info)
 #             return details.city
 #         else:
 #             # Fallback to geocoder

@@ -17,6 +17,8 @@ from google.adk.tools import load_memory # Tool to query memory
 from src.orchestrator.agents.sub_agents.city_weather.agent import daily_weather_report_workflow
 from src.orchestrator.agents.sub_agents.indian_stock.agent import daily_stock_report_workflow
 
+from src.config.logging import logger
+
 # from agents.sub_agents.city_weather.agent import daily_weather_report_workflow
 # from agents.sub_agents.indian_stock.agent import daily_stock_report_workflow
 
@@ -86,37 +88,37 @@ root_agent = buddy_agent
 #     for event in events:
 #         if event.is_final_response() and event.content and event.content.parts:
 #             final_response = event.content.parts[0].text
-#             print("AGENT RESPONSE:", final_response)
+#             logger.info("AGENT RESPONSE:", final_response)
 
 
 # async def explore_session_events():
 
 #     call_agent("What is the capital of France?")
     
-#     print("========== Session Event Exploration 1 ==========")
+#     logger.info("========== Session Event Exploration 1 ==========")
 #     session = await session_service.get_session(
 #         app_name=APP_NAME, user_id=USER_ID, session_id=SESSION_ID
 #     )
-#     print(f"Type of session: {type(session)}")
+#     logger.info(f"Type of session: {type(session)}")
 #     if session is not None:
-#         print(f"Session State: {session.state}")
-#         print(f"Session Events: {len(session.events)}")
+#         logger.info(f"Session State: {session.state}")
+#         logger.info(f"Session Events: {len(session.events)}")
 #     else:
-#         print("Session is None. Cannot display state or events.")
-#     print("===============================================")
+#         logger.info("Session is None. Cannot display state or events.")
+#     logger.info("===============================================")
 
 #     call_agent("What is the capital of India?")
 
-#     print("========== Session Event Exploration 2 ==========")
+#     logger.info("========== Session Event Exploration 2 ==========")
 #     session = await session_service.get_session(
 #         app_name=APP_NAME, user_id=USER_ID, session_id=SESSION_ID
 #     )
-#     print(f"Type of session: {type(session)}")
+#     logger.info(f"Type of session: {type(session)}")
 #     if session is not None:
-#         print(f"Session State: {session.state}")
-#         print(f"Session Events: {len(session.events)}")
+#         logger.info(f"Session State: {session.state}")
+#         logger.info(f"Session Events: {len(session.events)}")
 #     else:
-#         print("Session is None. Cannot display state or events.")
-#     print("===============================================")
+#         logger.info("Session is None. Cannot display state or events.")
+#     logger.info("===============================================")
 
 # asyncio.run(explore_session_events())

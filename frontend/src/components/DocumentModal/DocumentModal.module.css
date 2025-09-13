@@ -1,0 +1,202 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: white;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.modalHeader {
+  padding: 15px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.documentList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.documentItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 5px;
+}
+
+.documentInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.documentName {
+  font-weight: 500;
+}
+
+.documentSize {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.documentActions {
+  display: flex;
+  gap: 8px;
+}
+
+.selectButton {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
+}
+
+.selectButton:hover {
+  background-color: #f3f4f6;
+}
+
+.selected {
+  background-color: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+.deleteButton {
+  padding: 5px;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+  background-color: white;
+  cursor: pointer;
+  color: #ef4444;
+}
+
+.deleteButton:hover {
+  background-color: #fee2e2;
+}
+
+.uploadSection {
+  padding: 15px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.uploadButton {
+  padding: 10px 15px;
+  border-radius: 4px;
+  border: 1px dashed #3b82f6;
+  background-color: #f0f7ff;
+  color: #3b82f6;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.uploadButton:hover {
+  background-color: #e0f2fe;
+}
+
+.uploadHint {
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+}
+
+.uploadProgress {
+  margin: 0 15px;
+  height: 20px;
+  background-color: #f3f4f6;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.progressBar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #3b82f6;
+  transition: width 0.3s ease;
+}
+
+.uploadProgress span {
+  position: relative;
+  z-index: 1;
+  font-size: 0.7rem;
+  color: white;
+}
+
+.modalFooter {
+  padding: 15px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.doneButton {
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: none;
+  background-color: #10b981;
+  color: white;
+  cursor: pointer;
+}
+
+.doneButton:hover {
+  background-color: #059669;
+}
+
+@media (max-width: 600px) {
+  .documentItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .documentActions {
+    align-self: flex-end;
+  }
+}

@@ -6,6 +6,8 @@ from openai import OpenAI, OpenAIError
 import time
 import json
 
+from src.config.logging import logger
+
 chat_model_params = AskParams()  
 
 class GeminiClient:
@@ -53,7 +55,7 @@ class GeminiClient:
                 embeddings.append(response.json()['embedding']['values'])
             return {'embedding': embeddings}
         except Exception as e:
-            print(f"Error creating embeddings with custom client: {e}")
+            logger.info(f"Error creating embeddings with custom client: {e}")
             raise OpenAIError(f"Failed to create embeddings: {e}")
 
     def _calc_cost(self,data: Any) -> float:
@@ -90,7 +92,7 @@ class GeminiClient:
             return ChatResponse(answer=answer, cost=cost, time_taken=response_time)
         
         except Exception as e:
-            print(f"Error with Gemini request: {e}")
+            logger.info(f"Error with Gemini request: {e}")
             raise OpenAIError
 
 
