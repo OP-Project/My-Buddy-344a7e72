@@ -9,3 +9,4 @@ geocoder
 ipinfo
 markitdown[all]
 yfinance
+chromadb
